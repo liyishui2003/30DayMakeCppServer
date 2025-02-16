@@ -1,0 +1,23 @@
+# 09_简易的缓冲区
+
+今天没有太抽象的、架构层面的改进，更加偏向于细节而不是架构。
+引入了用string实现的简易缓冲区，声明和实现和之前的比简单太多了：
+```cpp
+class Buffer
+{
+private:
+    std::string buf;
+public:
+    Buffer();
+    ~Buffer();
+    void append(const char* _str, int _size);
+    ssize_t size();
+    const char* c_str();
+    void clear();
+    void getline();
+};
+```
+
+作者在这里提到还有很多细节可以去完善，比如非阻塞式socket模块，但目前的我很难想到要从非阻塞式socket的哪一方面去优化。
+或许以后能明白，以后再回头更新。
+--2025.02.16
